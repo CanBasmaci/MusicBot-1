@@ -19,20 +19,20 @@ module.exports = {
       ]
     },
     {
-      name: "playlist",
-      description: "Write your playlist name.",
+  name: "playlist",
+    description: "Write your playlist name.",
       type: ApplicationCommandOptionType.Subcommand,
-      options: [
-        {
-          name: "name",
-          description: "Write the name of the playlist you want to create.",
-          type: ApplicationCommandOptionType.String,
-          required: true
-        }
-      ]
-    },
+        options: [
+          {
+            name: "name",
+            description: "Write the name of the playlist you want to create.",
+            type: ApplicationCommandOptionType.String,
+            required: true
+          }
+        ]
+},
   ],
-  voiceChannel: true,
+voiceChannel: true,
   run: async (client, interaction) => {
     let lang = await db?.musicbot?.findOne({ guildID: interaction.guild.id })
     lang = lang?.language || client.language
@@ -135,7 +135,7 @@ module.exports = {
       }
     } catch (e) {
       const errorNotifer = require("../functions.js")
-     errorNotifer(client, interaction, e, lang)
-      }
+      errorNotifer(client, interaction, e, lang)
+    }
   },
 };
